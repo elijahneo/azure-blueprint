@@ -4,7 +4,7 @@
     "parameters": {
         "environmentName": {
             "type": "string",
-            "defaultValue": "AzureUSGovernment",
+            "defaultValue": "AzureCloud",
             "metadata": {
                 "description": "Assign the environment for Azure (Azure Commercial or Gov)"
             }
@@ -41,8 +41,8 @@
         "vmLocation": {
             "type": "string",
             "allowedValues": [
-              "USGov Virginia",
-              "USGov Iowa"
+              "Southeast Asia",
+              "East Asia"
             ],
             "metadata": {
                 "description": "Azure location that VMs will be deployed to"
@@ -143,7 +143,7 @@
         },
         "omsWorkspaceRegion": {
             "type": "string",
-            "defaultValue": "USGov Virginia",
+            "defaultValue": "Southeast Asia",
             "allowedValues": ["USGov Virginia", "East US", "West Europe", "Southeast Asia", "Australia Southeast"],
             "metadata": {
                 "description": "Specify the region for your Workspace"
@@ -520,7 +520,7 @@
             "metadata": {
                 "description": "The type of the Sql Server Storage Account created"
             },
-            "defaultValue": "Standard_GRS"
+            "defaultValue": "Standard_LRS"
         },
         "dcStorageAccountType": {
             "type": "string",
@@ -533,7 +533,7 @@
             "metadata": {
                 "description": "The type of the DC Storage Account created"
             },
-            "defaultValue": "Standard_GRS"
+            "defaultValue": "Standard_LRS"
         },
         "webStorageAccountType": {
             "type": "string",
@@ -546,7 +546,7 @@
             "metadata": {
                 "description": "The type of the DC Storage Account created"
             },
-            "defaultValue": "Standard_GRS"
+            "defaultValue": "Standard_LRS"
         },
         "mgtStorageAccountType": {
             "type": "string",
@@ -559,7 +559,7 @@
             "metadata": {
                 "description": "The type of the DC Storage Account created"
             },
-            "defaultValue": "Standard_GRS"
+            "defaultValue": "Standard_LRS"
         },
         "virtualNetworkAddressRange": {
             "type": "string",
@@ -697,14 +697,14 @@
             "metadata": {
                 "description": "Linked Templates base url"
             },
-            "defaultValue": "https://raw.githubusercontent.com/AppliedIS/azure-blueprint/master/nestedtemplates"
+            "defaultValue": "https://raw.githubusercontent.com/elijahneo/azure-blueprint/master/nestedtemplates"
         },
         "dscBaseUrl": {
             "type": "string",
             "metadata": {
                 "description": "DSC Scripts base url"
             },
-            "defaultValue": "https://raw.githubusercontent.com/AppliedIS/azure-blueprint/master/DSC"
+            "defaultValue": "https://raw.githubusercontent.com/elijahneo/azure-blueprint/master/DSC"
         },
         "scriptsBaseUrl": {
             "type": "string",
@@ -712,7 +712,7 @@
                 "description": "DSC Scripts base url"
             },
 
-            "defaultValue": "https://raw.githubusercontent.com/AppliedIS/azure-blueprint/master/custom-scripts"
+            "defaultValue": "https://raw.githubusercontent.com/elijahneo/azure-blueprint/master/custom-scripts"
         },
         "sqlServerVersion": {
             "type": "string",
@@ -815,7 +815,7 @@
         },
         "VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkNameWithSuffix'))]",
         "derivedIds": {
-            "keyVaultUrl": "[concat('https://', parameters('keyVaultName') ,'.vault.usgovcloudapi.net/')]",
+            "keyVaultUrl": "[concat('https://', parameters('keyVaultName') ,'.vault.azure.net/')]",
             "keyVaultId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('keyVaultResourceGroupName'), '/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]",
             "dcSubnet": "[concat(variables('VnetID'),'/subnets/', parameters('dcSubnet').name)]",
             "sqlSubnet": "[concat(variables('VnetID'),'/subnets/', parameters('sqlSubnet').name)]",
@@ -973,7 +973,7 @@
             "diskEncryptionExtensionVersion": "1.1",
             "encryptionOperation": "EnableEncryption",
             "keyEncryptionAlgorithm": "RSA-OAEP",
-            "keyVaultURL": "[concat('https://', parameters('keyVaultName'), '.vault.usgovcloudapi.net/')]",
+            "keyVaultURL": "[concat('https://', parameters('keyVaultName'), '.vault.azure.net/')]",
             "provisioningVMAzureDiskEncryptionUrl": "[concat(parameters('templatesBaseUrl'),'/configuringVMAzureDiskEncryption-', parameters('useExistingKek'),'.json')]",
             "keyVaultId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('keyVaultResourceGroupName'), '/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]",
             "keyVaultResourceID": "[concat(subscription().id,'/resourceGroups/',parameters('keyVaultResourceGroupName'),'/providers/Microsoft.KeyVault/vaults/', parameters('keyVaultName'))]"
