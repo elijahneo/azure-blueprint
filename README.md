@@ -7,7 +7,7 @@ This Azure Blueprint solution automatically deploys a multi-tier web application
 2. Run the pre-deployment PowerShell script: azure-blueprint/predeploy/Orchestration_InitialSetup.ps1. [Read more about pre-deployment.](#pre-deployment)
 3. Click the button below, sign into the Azure portal, enter the required ARM template parameters, and click **Purchase**. [Read more about deployment.](#deployment)
 
-	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAppliedIS%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
+	[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Felijahneo%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
 
 ## In this document
 
@@ -102,7 +102,7 @@ The pre-deployment PowerShell script will verify that the necessary Azure PowerS
 * **Admin username**: Administrator username you want to use for the administrator accounts on deployed virtual machines
 * **adminPassword**: Administrator password you want to use for the administrator accounts on deployed virtual machines (must meet the complexity requirements; see below)
 * **sqlServerServiceAccountPassword**: SQL service account password you want to use (must meet the complexity requirements; see below)
-* **subscriptionId**: To find your Azure Government subscription ID, navigate to https://portal.azure.us and sign in. Expand the service menu, and begin typing "subscription" in the filter box. Click **Subscriptions** to open the subscriptions blade. Note the subscription ID, which has the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.
+* **subscriptionId**: To find your Azure Government subscription ID, navigate to https://portal.azure.com and sign in. Expand the service menu, and begin typing "subscription" in the filter box. Click **Subscriptions** to open the subscriptions blade. Note the subscription ID, which has the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.
 * **resourceGroupName**: Resource group name you want to use for this deployment; must be a string of 1-90 alphanumeric characters (such as 0-9, a-z, A-Z), periods, underscores, hyphens, and parenthesis, and it cannot end in a period (such as `blueprint-rg`).
 * **keyVaultName**: Key Vault name you want to use for this deployment; must be a string 3-24 alphanumeric characters (such as 0-9, a-z, A-Z) and hyphens, and it must be unique across Azure Government.
 
@@ -111,7 +111,7 @@ Passwords must be at least 14 characters and contain one each of the following: 
 #### Pre-deployment instructions
 
 1. Clone this GitHub repository to your local workstation:
-`git clone https://github.com/AppliedIS/azure-blueprint.git`
+`git clone https://github.com/elijahneo/azure-blueprint.git`
 2. Start PowerShell as an administrator
 3. Run Orchestration_InitialSetup.ps1
 4. Enter the parameters above when prompted
@@ -145,7 +145,7 @@ After clicking the Deploy to Azure Gov button, the Azure portal will open and pr
 
 1. Click the button below.
 
-	[![Deploy to Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAppliedIS%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
+	[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Felijahneo%2Fazure-blueprint%2Fmaster%2Fazuredeploy.json)
 2. Enter the settings above.
 3. Review the terms and conditions and click **I agree to the terms and conditions stated above**.
 4. Click **Purchase**.
