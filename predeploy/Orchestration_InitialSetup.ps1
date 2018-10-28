@@ -52,7 +52,7 @@ function loginToAzure{
 
 	$AzureAuthCreds = New-Object System.Management.Automation.PSCredential -ArgumentList @($global:azureUserName,$global:azurePassword)
 	$azureEnv = Get-AzureRmEnvironment -Name $EnvironmentName
-	Login-AzureRmAccount -EnvironmentName "AzureUSGovernment" -Credential $AzureAuthCreds
+	Login-AzureRmAccount -EnvironmentName "AzureCloud" -Credential $AzureAuthCreds
 
 	if($?) {
 		Write-Host "Login successful!"
@@ -146,8 +146,8 @@ function checkPasswords
 function orchestration
 {
 	Param(
-		[string]$environmentName = "AzureUSGovernment",
-		[string]$location = "USGov Virginia",
+		[string]$environmentName = "AzureCloud",
+		[string]$location = "Southeast Asia",
 		[Parameter(Mandatory=$true)]
 		[string]$subscriptionId,
 		[Parameter(Mandatory=$true)]
